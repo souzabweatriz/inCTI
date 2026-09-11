@@ -30,7 +30,7 @@
       <div class="flex items-center gap-4">
         <router-link
           to="/login"
-          class="w-28 h-12 flex items-center justify-center rounded-full bg-[#314c53] text-white text-base font-medium hover:bg-[#5a7f78] transition"
+          class="w-26 h-9 flex items-center justify-center rounded-full bg-[#314c53] text-white text-base font-medium hover:bg-[#5a7f78] transition"
         >
           Entrar
         </router-link>
