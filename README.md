@@ -1,2 +1,0 @@
-# inCTI
-Projeto individual fullstack
