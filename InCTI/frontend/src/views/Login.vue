@@ -1,10 +1,12 @@
 <template>
     <main class="login-page">
+
         <div class="login-overlay"></div>
 
         <div class="login-container">
 
             <section class="login-info">
+
                 <p class="text-[#bbdec6] text-[0.55rem] uppercase tracking-[0.3em] font-medium">
                     Plataforma analítica
                 </p>
@@ -14,11 +16,13 @@
                     <br>
                     por trás do ruído.
                 </h1>
+
             </section>
 
             <section class="login-card">
 
                 <div class="flex items-center gap-2 mb-6">
+
                     <img
                         src="../assets/icons/logo.png"
                         alt="InCTI"
@@ -28,9 +32,11 @@
                     <span class="text-white text-sm font-semibold tracking-wide">
                         InCTI
                     </span>
+
                 </div>
 
                 <div class="mb-6">
+
                     <h2 class="text-white text-[1.35rem] font-semibold">
                         Bem-vindo de volta
                     </h2>
@@ -38,11 +44,13 @@
                     <p class="text-white/45 text-[0.7rem] mt-2">
                         Entre com seus dados para acessar sua conta.
                     </p>
+
                 </div>
 
                 <form class="flex flex-col gap-4">
 
                     <div class="flex flex-col gap-2">
+
                         <label
                             for="email"
                             class="text-white/60 text-[0.6rem] uppercase tracking-[0.12em]"
@@ -56,9 +64,11 @@
                             placeholder="voce@empresa.com"
                             class="email-input"
                         >
+
                     </div>
 
                     <div class="flex flex-col gap-2">
+
                         <label
                             for="password"
                             class="text-white/60 text-[0.6rem] uppercase tracking-[0.12em]"
@@ -66,25 +76,95 @@
                             Senha
                         </label>
 
-                        <div class="password-wrapper">
-                            <Password
+                        <div class="password-field">
+
+                            <input
+                                id="password"
                                 v-model="password"
-                                inputId="password"
+                                :type="showPassword ? 'text' : 'password'"
                                 placeholder="••••••••"
-                                :feedback="false"
-                                toggleMask
-                            />
+                                class="password-input"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-button"
+                                @click="showPassword = !showPassword"
+                            >
+
+                                <svg
+                                    v-if="showPassword"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    class="w-[0.95rem] h-[0.95rem]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.5-6 9.75-6 9.75 6 9.75 6-3.5 6-9.75 6-9.75-6-9.75-6Z"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                    />
+                                </svg>
+
+                                <svg
+                                    v-else
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    class="w-[0.95rem] h-[0.95rem]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M3 3l18 18"
+                                    />
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M10.58 10.58a2 2 0 0 0 2.83 2.83"
+                                    />
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9.88 5.09A10.72 10.72 0 0 1 12 4.88c6.25 0 9.75 7.12 9.75 7.12a17.74 17.74 0 0 1-3.13 3.9"
+                                    />
+
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.61 6.61C3.83 8.43 2.25 12 2.25 12s3.5 7.12 9.75 7.12a10.76 10.76 0 0 0 4.04-.78"
+                                    />
+                                </svg>
+
+                            </button>
+
                         </div>
+
                     </div>
 
                     <div class="flex items-center justify-between mt-1">
+
                         <label class="flex items-center gap-2 text-white/45 text-[0.6rem]">
+
                             <input
                                 type="checkbox"
                                 class="w-[0.75rem] h-[0.75rem] accent-[#bbdec6]"
                             >
 
                             Lembrar de mim
+
                         </label>
 
                         <a
@@ -93,22 +173,26 @@
                         >
                             Esqueceu a senha?
                         </a>
+
                     </div>
 
                     <button
                         type="submit"
                         class="w-full h-[2.75rem] flex items-center justify-center rounded-md bg-[#bbdec6] text-[#010300] text-[0.7rem] font-semibold hover:bg-white transition mt-1"
                     >
+
                         Entrar
 
                         <span class="ml-2">
                             →
                         </span>
+
                     </button>
 
                 </form>
 
                 <div class="flex items-center gap-3 my-5">
+
                     <div class="h-px flex-1 bg-white/[0.08]"></div>
 
                     <span class="text-white/25 text-[0.55rem]">
@@ -116,9 +200,11 @@
                     </span>
 
                     <div class="h-px flex-1 bg-white/[0.08]"></div>
+
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
+
                     <button
                         type="button"
                         class="h-[2.25rem] flex items-center justify-center rounded-md border border-white/[0.1] text-white/60 text-[0.6rem] hover:bg-white/[0.05] hover:text-white transition"
@@ -132,9 +218,11 @@
                     >
                         Apple
                     </button>
+
                 </div>
 
                 <p class="text-center text-white/25 text-[0.55rem] mt-5">
+
                     Ainda não tem uma conta?
 
                     <router-link
@@ -143,19 +231,21 @@
                     >
                         Saiba mais
                     </router-link>
+
                 </p>
 
             </section>
 
         </div>
+
     </main>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import Password from 'primevue/password'
 
 const password = ref('')
+const showPassword = ref(false)
 </script>
 
 <style scoped>
@@ -163,19 +253,19 @@ const password = ref('')
     display: flex;
     width: 100%;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
     background-image: url('../assets/images/BackgroundLogin.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
 }
 
 .login-overlay {
-    width: 100%;
-    height: 100%;
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(1, 3, 0, 0.28);
 }
 
@@ -232,67 +322,56 @@ const password = ref('')
     border-color: #bbdec6;
 }
 
-.password-wrapper {
+.password-field {
     display: flex;
     width: 100%;
     height: 2.5rem;
-    position: relative;
-}
-
-.password-wrapper :deep(.p-password) {
-    display: flex;
-    width: 100%;
-    height: 2.5rem;
-    position: relative;
-}
-
-.password-wrapper :deep(.p-password-input) {
-    display: flex;
-    width: 100%;
-    height: 2.5rem;
-    padding: 0 2.75rem 0 0.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
     border-radius: 0.375rem;
     background: rgba(255, 255, 255, 0.04);
     border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+
+.password-field:focus-within {
+    border-color: #bbdec6;
+}
+
+.password-input {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    flex: 1;
+    padding: 0;
+    background: transparent;
+    border: 0;
     color: white;
     font-size: 0.7rem;
     outline: none;
 }
 
-.password-wrapper :deep(.p-password-input::placeholder) {
+.password-input::placeholder {
     color: rgba(255, 255, 255, 0.2);
 }
 
-.password-wrapper :deep(.p-password-input:focus) {
-    border-color: #bbdec6;
-    box-shadow: none;
-}
-
-.password-wrapper :deep(.p-password-toggle-mask) {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
+.password-button {
     display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
     margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.password-wrapper :deep(.p-password-toggle-mask-icon) {
-    width: 0.9rem;
-    height: 0.9rem;
     color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
 }
 
-.password-wrapper :deep(.p-password-toggle-mask-icon:hover) {
+.password-button:hover {
     color: #bbdec6;
 }
 
@@ -313,7 +392,6 @@ const password = ref('')
 
 @media (max-width: 40rem) {
     .login-container {
-        display: flex;
         width: 100%;
         height: 100%;
         align-items: center;
