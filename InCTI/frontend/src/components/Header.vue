@@ -1,157 +1,168 @@
+<script setup>
+import { ref } from 'vue'
+
+const menuAberto = ref(false)
+
+function fecharMenu() {
+    menuAberto.value = false
+}
+</script>
+
 <template>
-    <header class="header">
+    <header class="fixed left-0 top-0 z-50 flex w-full justify-center px-3 py-3 sm:px-4 sm:py-4 lg:px-6">
 
-        <nav class="header-nav">
+        <nav
+            class="relative flex min-h-14 w-full max-w-7xl items-center justify-between rounded-2xl border border-white/[0.08] bg-[#010300]/70 px-4 shadow-[0_0.75rem_2.5rem_rgba(0,0,0,0.25)] backdrop-blur-xl sm:min-h-16 sm:px-5 lg:min-h-[4.5rem] lg:px-7">
 
-            <a
-                href="#inicio"
-                class="logo"
-            >
-                <img
-                    src="../assets/icons/logo.png"
-                    alt="Logo InCTI"
-                >
+            <router-link to="/" class="flex shrink-0 items-center justify-center gap-2.5" @click="fecharMenu">
 
-                <span>
+                <img src="../assets/icons/logo.png" alt="InCTI"
+                    class="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9">
+
+                <span class="text-sm font-semibold tracking-[0.08em] text-white sm:text-base">
                     InCTI
                 </span>
-            </a>
 
-            <div class="nav-links">
+            </router-link>
 
-                <a href="#plataforma">
-                    Plataforma
+            <div class="hidden h-full items-center justify-center gap-6 md:flex lg:gap-9 xl:gap-12">
+
+                <a href="#inicio"
+                    class="group relative flex h-full items-center justify-center px-1 text-[0.7rem] text-white/55 transition hover:text-white lg:text-xs">
+                    <span>
+                        Início
+                    </span>
+
+                    <span
+                        class="absolute bottom-2.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#bbdec6] shadow-[0_0_0.6rem_rgba(187,222,198,0.6)] transition-all duration-300 group-hover:w-full lg:bottom-3"></span>
                 </a>
 
-                <a href="#insights">
-                    Insights
+                <a href="#plataforma"
+                    class="group relative flex h-full items-center justify-center px-1 text-[0.7rem] text-white/55 transition hover:text-white lg:text-xs">
+                    <span>
+                        Plataforma
+                    </span>
+
+                    <span
+                        class="absolute bottom-2.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#bbdec6] shadow-[0_0_0.6rem_rgba(187,222,198,0.6)] transition-all duration-300 group-hover:w-full lg:bottom-3"></span>
                 </a>
 
-                <a href="#sobre">
-                    Sobre
+                <a href="#grafico"
+                    class="group relative flex h-full items-center justify-center px-1 text-[0.7rem] text-white/55 transition hover:text-white lg:text-xs">
+                    <span>
+                        Insights
+                    </span>
+
+                    <span
+                        class="absolute bottom-2.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#bbdec6] shadow-[0_0_0.6rem_rgba(187,222,198,0.6)] transition-all duration-300 group-hover:w-full lg:bottom-3"></span>
+                </a>
+
+                <a href="#recursos"
+                    class="group relative flex h-full items-center justify-center px-1 text-[0.7rem] text-white/55 transition hover:text-white lg:text-xs">
+                    <span>
+                        Recursos
+                    </span>
+
+                    <span
+                        class="absolute bottom-2.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#bbdec6] shadow-[0_0_0.6rem_rgba(187,222,198,0.6)] transition-all duration-300 group-hover:w-full lg:bottom-3"></span>
+                </a>
+
+                <a href="#sobre"
+                    class="group relative flex h-full items-center justify-center px-1 text-[0.7rem] text-white/55 transition hover:text-white lg:text-xs">
+                    <span>
+                        Sobre
+                    </span>
+
+                    <span
+                        class="absolute bottom-2.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#bbdec6] shadow-[0_0_0.6rem_rgba(187,222,198,0.6)] transition-all duration-300 group-hover:w-full lg:bottom-3"></span>
                 </a>
 
             </div>
 
-            <a
-                href="/login"
-                class="login-button"
-            >
-                Entrar
-            </a>
+            <div class="hidden shrink-0 items-center justify-center gap-2 sm:gap-3 md:flex">
+
+                <router-link to="/login"
+                    class="flex h-10 min-w-[5rem] items-center justify-center rounded-lg px-4 text-center text-[0.7rem] text-white/65 transition hover:bg-white/[0.04] hover:text-white lg:h-11 lg:min-w-[5.5rem] lg:text-xs">
+                    Entrar
+                </router-link>
+
+                <router-link to="/login"
+                    class="flex h-10 min-w-[8.5rem] items-center justify-center gap-2 rounded-lg bg-[#bbdec6] px-4 text-center text-[0.65rem] font-semibold text-[#010300] transition hover:bg-white hover:shadow-[0_0_1.8rem_rgba(187,222,198,0.15)] sm:min-w-[9rem] lg:h-11 lg:min-w-[9.5rem] lg:px-6 lg:text-xs">
+                    Começar agora
+                    <span>
+                        →
+                    </span>
+                </router-link>
+
+            </div>
+
+            <button type="button" aria-label="Abrir menu"
+                class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/75 transition hover:bg-white/[0.07] md:hidden"
+                @click="menuAberto = !menuAberto">
+
+                <svg v-if="!menuAberto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.7" class="h-5 w-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+
+                <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.7" class="h-5 w-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+                </svg>
+
+            </button>
+
+            <div v-if="menuAberto"
+                class="absolute left-0 right-0 top-[calc(100%+0.65rem)] flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#010300]/90 p-3 shadow-[0_1rem_3rem_rgba(0,0,0,0.35)] backdrop-blur-xl md:hidden">
+
+                <a href="#inicio"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/65 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Início
+                </a>
+
+                <a href="#plataforma"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/65 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Plataforma
+                </a>
+
+                <a href="#grafico"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/65 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Insights
+                </a>
+
+                <a href="#recursos"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/65 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Recursos
+                </a>
+
+                <a href="#sobre"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/65 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Sobre
+                </a>
+
+                <div class="my-2 h-px bg-white/[0.06]"></div>
+
+                <router-link to="/login"
+                    class="flex min-h-11 items-center justify-center rounded-xl px-4 text-xs text-white/70 transition hover:bg-white/[0.05] hover:text-white"
+                    @click="fecharMenu">
+                    Entrar
+                </router-link>
+
+                <router-link to="/login"
+                    class="mt-1 flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#bbdec6] px-4 text-xs font-semibold text-[#010300] transition hover:bg-white"
+                    @click="fecharMenu">
+                    Começar agora
+                    <span>→</span>
+                </router-link>
+
+            </div>
 
         </nav>
 
     </header>
 </template>
-
-<style scoped>
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 50;
-    width: 100%;
-    height: 4rem;
-    background: rgba(1, 3, 0, 0.94);
-    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(1rem);
-}
-
-.header-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: calc(100% - 5rem);
-    max-width: 90rem;
-    height: 4rem;
-    margin: 0 auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-}
-
-.logo img {
-    display: flex;
-    width: 2.25rem;
-    height: 2.25rem;
-    object-fit: contain;
-}
-
-.logo span {
-    color: #ffffff;
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.nav-links a {
-    position: relative;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.45rem;
-    width: 0;
-    height: 0.1rem;
-    background: #bbdec6;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.login-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7rem;
-    height: 2.5rem;
-    border: 0.0625rem solid rgba(90, 127, 120, 0.6);
-    border-radius: 9999px;
-    background: #314c53;
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.login-button:hover {
-    background: #5a7f78;
-    border-color: #5a7f78;
-    box-shadow: 0 0 1.5rem rgba(187, 222, 198, 0.12);
-}
-
-@media (max-width: 48rem) {
-    .header-nav {
-        width: calc(100% - 3rem);
-    }
-
-    .nav-links {
-        gap: 1.25rem;
-    }
-}
-</style>
