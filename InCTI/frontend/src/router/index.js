@@ -21,8 +21,14 @@ const routes = [
   },
 
   {
+    path: '/upload',
+    redirect: { name: 'upload' }
+  },
+
+  {
     path: '/dashboard',
     component: Dashboard,
+    redirect: { name: 'upload' },
 
     children: [
       {
